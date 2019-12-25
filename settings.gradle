@@ -1,0 +1,2 @@
+include ':app', ':iffyservice'
+rootProject.name='My Application'
