@@ -9,8 +9,6 @@ import android.os.Bundle
 import android.os.IBinder
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
 import com.example.myapplication.IMyAidlInterface.Stub.getDefaultImpl
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -78,7 +76,6 @@ class MainActivity : AppCompatActivity(), ServiceConnection {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
 
         fab.setOnClickListener {
             Snackbar.make(it, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -94,6 +91,39 @@ class MainActivity : AppCompatActivity(), ServiceConnection {
             }
 
         }
+        send_student_to_service.setOnClickListener {
+            println("点击发送学生")
+            mIMyAidlInterface.SendStudent(Student("iffy client",22))
+
+        }
+
+        get_student_to_service.setOnClickListener {
+            println("点击发送学生")
+           println("得到学生 ${mIMyAidlInterface.student.nane} ${mIMyAidlInterface.student.age}")
+        }
+
+        add_studentIn.setOnClickListener {
+            var sIn = Student("StudentIn client",201)
+            println("add_studentIn ${sIn.nane} ${sIn.age} ")
+           var s1 = mIMyAidlInterface.addStudentIn(sIn)
+            println("add_studentIn Server返回 ${s1.nane} ${s1.age} ")
+        }
+
+        add_studentOut.setOnClickListener {
+            var sIn = Student("StudentOut client",202)
+            println("add_studentOut ${sIn.nane} ${sIn.age} ")
+            var s1 = mIMyAidlInterface.addStudentOut(sIn)
+            println("add_studentOut Server返回 ${s1.nane} ${s1.age} ")
+        }
+
+        add_studentInOut.setOnClickListener {
+            var sIn = Student("StudentInOut client",203)
+            println("add_studentInOut ${sIn.nane} ${sIn.age} ")
+            var s1 = mIMyAidlInterface.addStudentInOut(sIn)
+            println("add_studentInOut Server返回 ${s1.nane} ${s1.age} ")
+        }
+
+
     }
 
     fun bindService() {
