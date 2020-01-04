@@ -105,22 +105,22 @@ class MainActivity : AppCompatActivity(), ServiceConnection {
         add_studentIn.setOnClickListener {
             var sIn = Student("StudentIn client",201)
             println("add_studentIn ${sIn.nane} ${sIn.age} ")
-           var s1 = mIMyAidlInterface.addStudentIn(sIn)
-            println("add_studentIn Server返回 ${s1.nane} ${s1.age} ")
+            mIMyAidlInterface.addStudentIn(sIn)
+            println("add_studentIn Server返回 ${sIn.nane} ${sIn.age} ")
         }
 
         add_studentOut.setOnClickListener {
             var sIn = Student("StudentOut client",202)
             println("add_studentOut ${sIn.nane} ${sIn.age} ")
-            var s1 = mIMyAidlInterface.addStudentOut(sIn)
-            println("add_studentOut Server返回 ${s1.nane} ${s1.age} ")
+            mIMyAidlInterface.addStudentOut(sIn)
+            println("Server改变了client端对象的参数 ${sIn.nane} ${sIn.age} ")
         }
 
         add_studentInOut.setOnClickListener {
             var sIn = Student("StudentInOut client",203)
             println("add_studentInOut ${sIn.nane} ${sIn.age} ")
-            var s1 = mIMyAidlInterface.addStudentInOut(sIn)
-            println("add_studentInOut Server返回 ${s1.nane} ${s1.age} ")
+            mIMyAidlInterface.addStudentInOut(sIn)
+            println("Server改变了client端对象的参数 ${sIn.nane} ${sIn.age} ")
         }
 
 

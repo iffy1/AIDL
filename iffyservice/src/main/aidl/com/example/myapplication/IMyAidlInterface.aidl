@@ -9,8 +9,8 @@ interface IMyAidlInterface {
         void SendStudent(out Student s);
 
         //inouttest
-        Student addStudentIn(in Student s);
-        Student addStudentOut(out Student s);
-        Student addStudentInOut(inout Student s);
+        void addStudentIn(in Student s);
+        void addStudentOut(out Student s);
+        void addStudentInOut(inout Student s);
 }
 

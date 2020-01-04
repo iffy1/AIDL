@@ -9,19 +9,19 @@ import com.example.myapplication.Student
 class IffyService : Service() {
     //Stub类
     val binder = object : IMyAidlInterface.Stub() {
-        override fun addStudentIn(s: Student?): Student {
+        override fun addStudentIn(s: Student?) {
             println("addStudentIn 我收到学生了${s?.nane} ${s?.age}")
-            return Student("from Service In",100)
+            s?.age = 101
         }
 
-        override fun addStudentOut(s: Student?): Student {
+        override fun addStudentOut(s: Student?) {
             println("addStudentOut 我收到学生了${s?.nane} ${s?.age}")
-            return Student("from Service Out",101)
+            s?.age = 102
         }
 
-        override fun addStudentInOut(s: Student?): Student {
+        override fun addStudentInOut(s: Student?) {
             println("addStudentInOut 我收到学生了${s?.nane} ${s?.age}")
-            return Student("from Service InOut",102)
+            s?.age = 103
         }
 
         override fun SendStudent(s: Student?) {
