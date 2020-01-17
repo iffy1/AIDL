@@ -11,17 +11,19 @@ class Student(var nane: String?, var age: Int) : Parcelable {
         return 0
     }
 
-    /**反序列化*/
-    constructor(parcel: Parcel) : this() {
-        nane = parcel.readString()
-        age = parcel.readInt()
-    }
 
     /**序列化*/
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         //序列化和反序列化读写顺序要一致
         parcel.writeString(nane)
         parcel.writeInt(age)
+    }
+
+
+    /**反序列化*/
+    constructor(parcel: Parcel) : this() {
+        nane = parcel.readString()
+        age = parcel.readInt()
     }
 
     /**反序列化*/
